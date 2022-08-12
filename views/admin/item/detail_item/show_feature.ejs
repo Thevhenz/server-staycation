@@ -2,7 +2,7 @@
   class="tab-pane fade show active"
   id="show-feature"
   role="tabpanel"
-  aria-labelledby="show-feature-tab"
+  aria-labelledby="home-tab"
 >
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
@@ -74,7 +74,7 @@
                   </td>
                   <td>
                     <form
-                      action="/admin/feature/<%= feature[i].id %>?_method=DELETE"
+                      action="/admin/item/<%= itemId %>/feature/<%=feature[i].id %>?_method=DELETE"
                       method="POST"
                     >
                       <a
@@ -83,7 +83,7 @@
                         class="btn-warning btn-circle btn-sm button-update"
                         data-id="<%= feature[i].id %>"
                         data-name="<%= feature[i].name %>"
-                        data-namefeature="<%= feature[i].namefeature %>"
+                        data-qty="<%= feature[i].qty %>"
                         ><i class="fa fa-edit"></i
                       ></a>
                       <button

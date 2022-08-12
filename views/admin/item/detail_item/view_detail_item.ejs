@@ -18,25 +18,26 @@
         <!-- End Heading -->
 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
+          <li class="nav-item">
             <a
               class="nav-link active"
-              id="show-item-tab"
+              id="home-tab"
               data-toggle="tab"
               href="#show-feature"
               role="tab"
-              aria-controls="show-item"
+              aria-controls="home"
               aria-selected="true"
-              >Show Feature</a
-            >
+              >Show Feature</a>
           </li>
-          <li class="nav-item" role="presentation">
+          <li class="nav-item">
             <a
               class="nav-link"
-              id="add-item-tab"
+              id="profile-tab"
               data-toggle="tab"
               href="#show-activity"
               role="tab"
+              aria-controls="profile"
+              aria-selected="false"
               >Show Activity</a
             >
           </li>
@@ -95,20 +96,23 @@
   </div>
 </div>
 
-<%- include('show_modal_feature.ejs') %> <%- include('../../../partials/js.ejs')
-%>
+<%- include('show_modal_feature.ejs') %>
+<%- include('../../../partials/js.ejs') %>
 
 <script>
-  $(document).ready(function () {
-    $("#dataTableActivity").DataTable();
-  });
-  CKEDITOR.replace("desc");
-
   $("#dataTable").on("click", ".button-update", function () {
     let id = $(this).data("id");
     let name = $(this).data("name");
+    let qty = $(this).data("qty");
     $("#edit-modal").modal("show");
     $(".id").val(id);
     $(".name").val(name);
+    $(".qty").val(qty);
   });
+
+  $(document).ready(function () {
+    $("#dataTableActivity").DataTable();
+  });
+  
+  CKEDITOR.replace("desc");
 </script>

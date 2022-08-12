@@ -3,13 +3,14 @@
   class="modal fade"
   id="edit-modal"
   tabindex="-1"
+  role="dialog"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update Bank</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update Feature</h5>
         <button
           type="button"
           class="close"
@@ -20,31 +21,11 @@
         </button>
       </div>
       <form
-        action="/admin/bank?_method=PUT"
+        action="/admin/item/update/feature?_method=PUT"
         method="POST"
         enctype="multipart/form-data"
       >
         <div class="modal-body">
-          <div class="form-group">
-            <label for="nameBank">Bank Name</label>
-            <input
-              type="text"
-              name="nameBank"
-              class="form-control nameBank"
-              placeholder="Enter name bank"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="nomerRekening">Account Number</label>
-            <input
-              type="text"
-              name="nomerRekening"
-              class="form-control nomerRekening"
-              placeholder="Enter account number"
-              required
-            />
-          </div>
           <div class="form-group">
             <label for="name">Name</label>
             <input
@@ -56,6 +37,16 @@
             />
           </div>
           <div class="form-group">
+            <label for="qty">QTY</label>
+            <input
+              type="number"
+              name="qty"
+              class="form-control qty"
+              placeholder="Enter qty"
+              required
+            />
+          </div>
+          <div class="form-group">
             <label for="name">Image</label>
             <input type="file" class="form-control" name="image" />
             <span>Select image for update image</span>
@@ -63,6 +54,7 @@
         </div>
         <div class="modal-footer">
           <input type="hidden" class="id" name="id" />
+          <input type="hidden" name="itemId" value="<%- itemId %>" />
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
