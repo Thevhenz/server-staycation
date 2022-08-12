@@ -97,6 +97,7 @@
 </div>
 
 <%- include('show_modal_feature.ejs') %>
+<%- include('show_modal_activity.ejs') %>
 <%- include('../../../partials/js.ejs') %>
 
 <script>
@@ -104,11 +105,14 @@
     let id = $(this).data("id");
     let name = $(this).data("name");
     let qty = $(this).data("qty");
+    let type = $(this).data("type");
     $("#edit-modal").modal("show");
     $(".id").val(id);
     $(".name").val(name);
     $(".qty").val(qty);
+    $(".type").val(type);
   });
+  
 
   $(document).ready(function () {
     $("#dataTableActivity").DataTable();
