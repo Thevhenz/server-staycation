@@ -95,28 +95,34 @@
     </div>
   </div>
 </div>
-
-<%- include('show_modal_feature.ejs') %>
 <%- include('show_modal_activity.ejs') %>
+<%- include('show_modal_feature.ejs') %>
 <%- include('../../../partials/js.ejs') %>
-
 <script>
-  $("#dataTable").on("click", ".button-update", function () {
-    let id = $(this).data("id");
-    let name = $(this).data("name");
-    let qty = $(this).data("qty");
-    let type = $(this).data("type");
-    $("#edit-modal").modal("show");
-    $(".id").val(id);
-    $(".name").val(name);
-    $(".qty").val(qty);
-    $(".type").val(type);
-  });
-  
-
   $(document).ready(function () {
     $("#dataTableActivity").DataTable();
   });
+  $(document).ready(function () {
+    $("#dataTableFeature").DataTable();
+  });
+  // CKEDITOR.replace('desc');
+  $("#dataTableActivity").on("click", ".button-update-activity", function () {
+    let id = $(this).data("id");
+    let name = $(this).data("name");
+    let type = $(this).data("type");
+    $("#edit-modal-activity").modal("show");
+    $(".id").val(id);
+    $(".name").val(name);
+    $(".type").val(type);
+  });
   
-  CKEDITOR.replace("desc");
+  $("#dataTableFeature").on("click", ".button-update-feature", function () {
+    let id = $(this).data("id");
+    let name = $(this).data("name");
+    let qty = $(this).data("qty");
+    $("#edit-modal-feature").modal("show");
+    $(".id").val(id);
+    $(".name").val(name);
+    $(".qty").val(qty);
+  });
 </script>
