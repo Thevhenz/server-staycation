@@ -1,7 +1,12 @@
 const router = require("express").Router();
 const adminController = require("../controllers/adminController");
 const { upload, uploadMultiple } = require("../middlewares/multer");
+const auth = require('../middlewares/auth')
 
+router.get("/signin", adminController.viewSignin);
+router.post("/signin", adminController.actionSignin);
+router.use(auth);
+router.get("/logout", adminController.actionLogout);
 router.get("/dashboard", adminController.viewDashboard);
 
 //Category
@@ -24,7 +29,7 @@ router.get("/item/:id", adminController.showEditItem);
 router.put("/item/:id", uploadMultiple, adminController.editItem);
 router.delete("/item/:id", adminController.deleteItem);
 
-//endpoint detail item
+//Detail Item
 // Feature
 router.get("/item/show-detail-item/:itemId", adminController.viewDetailItem);
 router.post("/item/add/feature", upload, adminController.addFeature);
