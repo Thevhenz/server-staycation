@@ -1009,9 +1009,9 @@ var data = [
         memberId: mongoose.Types.ObjectId('5e96cbe292b97300fc903333'),
         bankId: mongoose.Types.ObjectId('5e96cbe292b97300fc903323'),
         payments: {
-          proofPayment: 'images/bukti.jpeg',
+          proofPayment: 'images/buktibayar.jpeg',
           bankFrom: 'BCA',
-          status: 'Proses',
+          status: 'Waiting',
           accountHolder: 'ang'
         }
       }
@@ -1047,14 +1047,14 @@ var data = [
         nameBank: 'Mandiri',
         nomorRekening: '089898',
         name: 'elfin',
-        imageUrl: 'images/logo bca.png'
+        imageUrl: 'images/logo madiri.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903323'),
         nameBank: 'BCA',
         nomorRekening: '878678',
         name: 'elfin',
-        imageUrl: 'images/logo mandiri.png'
+        imageUrl: 'images/logo bca.png'
       }
     ]
   },
