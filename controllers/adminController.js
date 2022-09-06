@@ -66,14 +66,20 @@ module.exports = {
   },
 
   //Dashboard
-  viewDashboard: (req, res) => {
+  viewDashboard: async (req, res) => {
     try {
+      const member = await Member.find()
+      const booking = await Booking.find()
+      const item = await Item.find()
       res.render("admin/dashboard/view_dashboard", {
         title: "Staycation | Dashboard",
-        user: req.session.user
+        user: req.session.user,
+        member,
+        booking,
+        item
       });
     } catch (error) {
-      
+      res.redirect("admin/dashboard");
     }
   },
 
@@ -616,8 +622,7 @@ module.exports = {
       .populate('memberId')
       .populate('bankId');
 
-      console.log(booking)
-
+      // console.log(booking)
       res.render("admin/booking/view_booking", {
         title: "Staycation | Booking",
         user: req.session.user,
@@ -635,7 +640,7 @@ module.exports = {
       const alertStatus = req.flash("alertStatus");
       const alert = { message: alertMessage, status: alertStatus };
 
-      const booking = await Booking.findOne({Iid: id})
+      const booking = await Booking.findOne({ _id: id})
       .populate('memberId')
       .populate('bankId')
 
