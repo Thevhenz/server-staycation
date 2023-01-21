@@ -2,7 +2,7 @@ var seeder = require('mongoose-seed');
 var mongoose = require('mongoose');
 
 // Connect to MongoDB via Mongoose
-seeder.connect('mongodb://127.0.0.1:27017/db_staycation', {
+seeder.connect('mongodb://127.0.0.1:27017/mern_staycation', {
   // useNewUrlParser: true,
   // useCreateIndex: true,
   // useFindAndModify: true,
@@ -1047,7 +1047,7 @@ var data = [
         nameBank: 'Mandiri',
         nomorRekening: '089898',
         name: 'elfin',
-        imageUrl: 'images/logo madiri.png'
+        imageUrl: 'images/logo mandiri.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903323'),

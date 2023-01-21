@@ -8,14 +8,14 @@ const session = require("express-session");
 const flash = require("connect-flash");
 //Import Mongoose
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/db_staycation");
+mongoose.connect("mongodb://127.0.0.1:27017/mern_staycation");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 //router admin
 const adminRouter = require("./routes/admin");
 const apiRouter = require("./routes/api");
-const adminController = require("./controllers/adminController");
+// const adminController = require("./controllers/adminController");
 
 var app = express();
 
