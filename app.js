@@ -6,9 +6,13 @@ var logger = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("connect-flash");
-//Import Mongoose
+// Import Mongoose
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://thevhenz:bwamern@cluster0.quqygo9.mongodb.net/db_staycation?retryWrites=true&w=majority");
+// Import Cors
+const cors = require("cors");
+mongoose.connect(
+  "mongodb+srv://thevhenz:bwamern@cluster0.quqygo9.mongodb.net/db_staycation?retryWrites=true&w=majority"
+);
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -42,6 +46,8 @@ app.use(
   "/sb-admin-2",
   express.static(path.join(__dirname, "node_modules/startbootstrap-sb-admin-2"))
 );
+
+app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
